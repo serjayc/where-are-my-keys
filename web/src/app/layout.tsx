@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   description:
     "Discover Where Are My Keys? Explore the movie, meet the cast, go behind the scenes, and uncover the story.",
 
+  verification: {
+    google: "dLNeTPtdHtonsLWVmHIMMj8JHUfrAywz73mu9c5vrQ0",
+  },
+
   openGraph: {
     title: "Where Are My Keys? | Official Movie Website",
     description:
