@@ -1,39 +1,63 @@
 import { Button } from "@/components/ui/button";
-import { Field, FieldLabel } from "@/components/ui/field";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { useForm } from "react-hook-form";
+import { UserInput, userSchema } from "../schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { api } from "@/lib/axios";
+import { toast } from "sonner";
 
-interface Props {
-  btnText: string;
-  isPresskit?: boolean;
-}
+export default function EnlistForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+    reset,
+  } = useForm<UserInput>({
+    resolver: zodResolver(userSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+    },
+  });
 
-export default function EnlistForm({ btnText, isPresskit }: Props) {
+  const onSubmit = async (data: UserInput) => {
+    try {
+      await api.post("/enlist", data);
+      reset();
+
+      toast.success(`Successfuly enlisted`);
+    } catch (error) {
+      toast.success(`Something went wrong. Try again later.`);
+      reset();
+      console.error("Enlistment failed:", error);
+    }
+  };
+
   return (
-    <form className="space-y-4 max-w-md mx-auto">
-      {isPresskit ? (
-        <>
-          <Field>
-            <FieldLabel htmlFor="email" className="text-foreground">
-              Email for press-kit access
-            </FieldLabel>
-            <Input id="email" placeholder="you@example.com" />
-          </Field>
-          <p className="text-xs text-muted-foreground">
-            By submitting, you request press-kit updates at this email address.
-          </p>
-        </>
-      ) : (
-        <>
-          <Field>
-            <FieldLabel htmlFor="email" className="text-foreground">
-              Email Address
-            </FieldLabel>
-            <Input id="email" placeholder="you@example.com" />
-          </Field>
-        </>
-      )}
-      <Button type="submit" className="w-full">
-        {btnText}
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-4 max-w-md mx-auto"
+    >
+      <Field>
+        <FieldLabel htmlFor="name" className="text-foreground">
+          Full Name (optional)
+        </FieldLabel>
+        <Input id="name" placeholder="John Doe" {...register("name")} />
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="email" className="text-foreground">
+          Email Address
+        </FieldLabel>
+        <Input
+          id="email"
+          placeholder="john@example.com"
+          {...register("email")}
+        />
+        {errors.email && <FieldError>{errors.email.message}</FieldError>}
+      </Field>
+      <Button disabled={isSubmitting} type="submit" className="w-full">
+        {isSubmitting ? "Enlisting..." : "Get Enlisted"}
       </Button>
     </form>
   );

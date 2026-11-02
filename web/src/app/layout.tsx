@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Amiri, Montserrat, Shanti } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = Shanti({
   variable: "--font-sans",
@@ -32,7 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster position="top-center" />
+      </body>
     </html>
   );
 }
