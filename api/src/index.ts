@@ -1,39 +1,33 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { enlistModule } from "./modules/enlist/index.js";
 import { cors } from "hono/cors";
 
-const port = 4000;
+import { enlistModule } from "./modules/enlist/index.js";
 
 const app = new Hono();
+
+const port = Number(process.env.PORT) || 4000;
+
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  process.env.CLIENT_ACTIVE_URL,
+].filter((origin): origin is string => Boolean(origin));
 
 app.use(
   "*",
   cors({
-    origin: [
-      String(process.env.CLIENT_URL),
-      String(process.env.CLIENT_ACTIVE_URL),
-    ],
+    origin: allowedOrigins,
+    allowMethods: ["GET", "POST", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   }),
 );
 
 app.get("/", (c) => {
-  return c.text("Hello Hono!");
+  return c.json({ message: "Hello Hono!" });
 });
 
 app.route("/enlist", enlistModule);
-
-// serve(
-//   {
-//     fetch: app.fetch,
-//     port,
-//   },
-//   (info) => {
-//     console.log(`Server is running on http://localhost:${info.port}`);
-//   },
-// );
 
 serve(
   {
