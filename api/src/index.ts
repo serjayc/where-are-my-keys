@@ -10,7 +10,10 @@ const app = new Hono();
 app.use(
   "*",
   cors({
-    origin: [String(process.env.CLIENT_URL)],
+    origin: [
+      String(process.env.CLIENT_URL),
+      String(process.env.CLIENT_ACTIVE_URL),
+    ],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   }),
