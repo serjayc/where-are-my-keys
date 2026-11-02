@@ -33,7 +33,8 @@ export default function PresskitForm({ onClose }: Props) {
 
   const onSubmit = async (data: UserInput) => {
     try {
-      await api.post("/enlist", data);
+      const res = await api.post("/enlist", data);
+
       reset();
 
       const downloadUrl = `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_FILE_ID}`;
@@ -42,7 +43,11 @@ export default function PresskitForm({ onClose }: Props) {
 
       onClose();
 
-      toast.success(`Thank you for subscribing to out updates.`);
+      if (res.data.alreadySubscribed) {
+        toast.success("Welcome back! Your download is starting.");
+      } else {
+        toast.success("Thank you for subscribing to our updates.");
+      }
     } catch (error) {
       toast.success(`Something went wrong. Try again later.`);
       reset();

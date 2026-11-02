@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import PresskitForm from "@/features/presskit/ui/PresskitForm";
+import PresskitForm from "@/features/house/PresskitForm";
 
 interface Props {
   onClose: () => void;
