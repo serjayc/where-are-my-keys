@@ -6,7 +6,7 @@ import ProductionStill from "@/pages/behind-scenes/ProductionStill";
 
 export default function BehindScenesPage() {
   return (
-    <Container className="pt-32 pb-16 lg:pt-48">
+    <Container className="py-16 lg:pt-32">
       <PageHeading title="Making the" titleHighlighted="Invisible visible." />
       <BehindScenesHero />
       <ProductionNotes />

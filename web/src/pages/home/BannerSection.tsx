@@ -1,12 +1,13 @@
 "use client";
 
+import EnlistForm from "@/features/enlist/ui/EnlistForm";
 import { motion } from "motion/react";
 
 const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.25,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -17,7 +18,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: "easeOut" as const,
     },
   },
@@ -25,7 +26,7 @@ const itemVariants = {
 
 export default function BannerSection() {
   return (
-    <section className="bg-secondary/50 py-16">
+    <section className="relative overflow-hidden bg-secondary/50 py-20 sm:py-28">
       <motion.div
         className="mx-auto max-w-3xl px-6 text-center sm:px-10"
         variants={containerVariants}
@@ -35,33 +36,43 @@ export default function BannerSection() {
       >
         <motion.div
           variants={itemVariants}
-          className="mb-10 flex items-center justify-center gap-4 sm:mb-14"
+          className="mb-10 flex items-center justify-center gap-4"
         >
           <span className="h-px w-8 bg-primary" />
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-primary">
-            A question from the dark
+            The next chapter awaits
           </p>
           <span className="h-px w-8 bg-primary" />
         </motion.div>
 
         <motion.h2
           variants={itemVariants}
-          className="font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl lg:text-[7rem]"
+          className="font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl"
         >
-          &ldquo;What if we
+          Something is
           <span className="mt-2 block italic text-primary sm:mt-4">
-            aren&apos;t alone?&rdquo;
+            coming.
           </span>
         </motion.h2>
 
-        <motion.div variants={itemVariants} className="mx-auto mt-8 max-w-lg">
+        <EnlistForm btnText="Get Enlisted" />
+
+        <motion.div
+          variants={itemVariants}
+          className="mx-auto mt-8 max-w-lg mb-4"
+        >
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-            Not all hauntings are frightening.
-            <span className="mt-1 block font-serif text-xl italic text-foreground sm:text-2xl">
-              Some of them wash your dishes.
-            </span>
+            New events, exclusive premieres and stories worth experiencing. Be
+            the first to know when something happens.
           </p>
         </motion.div>
+
+        <motion.p
+          variants={itemVariants}
+          className="mt-6 text-[10px] font-medium uppercase tracking-[0.25em] text-muted-foreground"
+        >
+          Exclusive updates · Upcoming events · First access
+        </motion.p>
       </motion.div>
     </section>
   );

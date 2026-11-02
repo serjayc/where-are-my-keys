@@ -14,7 +14,7 @@ interface Props {
 export default function MemberCard({ item }: Props) {
   const { name, role, src, socials = [] } = item;
   return (
-    <article className="group relative isolate aspect-3/4 h-full w-full overflow-hidden">
+    <article className="group relative isolate h-full min-h-60 w-full overflow-hidden rounded-xl">
       <Image
         src={src}
         width={800}
@@ -23,12 +23,12 @@ export default function MemberCard({ item }: Props) {
         className="object-cover transition-transform duration-700 group-hover:scale-105"
       />
 
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-6 md:p-8">
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4">
         <div>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-primary">
             {role}
           </p>
-          <h2 className="font-serif text-3xl font-semibold uppercase leading-tight md:text-4xl">
+          <h2 className="font-serif text-xl font-semibold uppercase leading-tight md:text-2xl">
             {name}
           </h2>
         </div>

@@ -24,7 +24,7 @@ export default function Header() {
           <Logo />
           <Navbar />
           <Button size="lg" className="hidden lg:flex" asChild>
-            <Link href="#trailer">
+            <Link href="/#trailer">
               <Play /> Trailer
             </Link>
           </Button>

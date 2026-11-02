@@ -8,7 +8,7 @@ const chapters = [
     label: "Act one · A presence at home",
   },
   {
-    title: "If I’m to blame…",
+    title: "If I'm to blame…",
     copy: "As the unexplained moments pile up, Leo starts to question the things he has always taken for granted — and the strange housemate he cannot see.",
     imageSide: "right",
     label: "Act two · Following the clues",
@@ -43,10 +43,18 @@ function StoryChapter({
           className="object-cover"
         />
       </div>
-      <div className={`max-w-md ${imageSide === "right" ? "md:justify-self-end" : ""}`}>
-        <p className="mb-3 text-xs uppercase tracking-[.24em] text-primary">{label}</p>
-        <h2 className="max-w-sm font-serif text-3xl uppercase leading-[.94] sm:text-4xl">{title}</h2>
-        <p className="mt-4 max-w-sm leading-relaxed text-muted-foreground">{copy}</p>
+      <div
+        className={`max-w-md ${imageSide === "right" ? "md:justify-self-end" : ""}`}
+      >
+        <p className="mb-3 text-xs uppercase tracking-[.24em] text-primary">
+          {label}
+        </p>
+        <h2 className="max-w-sm font-serif text-3xl uppercase leading-[.94] sm:text-4xl">
+          {title}
+        </h2>
+        <p className="mt-4 max-w-sm leading-relaxed text-muted-foreground">
+          {copy}
+        </p>
       </div>
     </article>
   );
@@ -54,7 +62,10 @@ function StoryChapter({
 
 export default function StoryChapters() {
   return (
-    <section aria-label="The three acts" className="mx-auto max-w-6xl space-y-12 sm:space-y-16 lg:space-y-[4.5rem]">
+    <section
+      aria-label="The three acts"
+      className="mx-auto max-w-6xl space-y-12 sm:space-y-16 lg:space-y-18"
+    >
       {chapters.map((chapter, index) => (
         <StoryChapter key={chapter.title} {...chapter} index={index} />
       ))}

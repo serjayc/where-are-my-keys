@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import PresskitForm from "./PresskitForm";
+import EnlistForm from "@/features/enlist/ui/EnlistForm";
 
 interface Props {
   onClose: () => void;
@@ -33,7 +33,7 @@ export default function GameModal({ onClose }: Props) {
             Official press-kit assets are awaiting supply. This records your
             request only; automatic email delivery is not yet connected.
           </p>
-          <PresskitForm />
+          <EnlistForm btnText="Free Download" isPresskit />
           <Button variant="outline" onClick={onClose} className="w-full">
             Back to the House
           </Button>

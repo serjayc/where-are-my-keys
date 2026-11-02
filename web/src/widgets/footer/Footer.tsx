@@ -99,21 +99,11 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="mt-10 flex flex-col gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+          className="mt-10 flex items-center justify-center w-full text-xs text-muted-foreground"
         >
           <motion.p variants={itemVariants}>
             © 2026 All rights reserved.
           </motion.p>
-
-          <motion.div variants={itemVariants}>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1 transition-colors hover:text-foreground"
-            >
-              Back to top
-              <ArrowUpRight className="-rotate-45 size-3.5" />
-            </Link>
-          </motion.div>
         </motion.div>
       </Container>
     </footer>
