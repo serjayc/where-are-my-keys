@@ -1,8 +1,8 @@
 import FloatingIconsBackground from "@/components/shared/FloatingIconsBackground";
-import BannerSection from "@/pages/home/BannerSection";
-import HeroSection from "@/pages/home/HeroSection";
-import StorySection from "@/pages/home/StorySection";
-import TrailerSection from "@/pages/home/TrailerSection";
+import BannerSection from "@/features/home/BannerSection";
+import HeroSection from "@/features/home/HeroSection";
+import StorySection from "@/features/home/StorySection";
+import TrailerSection from "@/features/home/TrailerSection";
 
 export default function HomePage() {
   return (

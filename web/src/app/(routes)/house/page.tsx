@@ -1,6 +1,6 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
-import GameWrapper from "@/pages/house/GameWrapper";
+import GameWrapper from "@/features/house/GameWrapper";
 
 export default function HousePage() {
   return (

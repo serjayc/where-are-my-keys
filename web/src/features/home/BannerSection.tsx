@@ -55,7 +55,7 @@ export default function BannerSection() {
           </span>
         </motion.h2>
 
-        <EnlistForm btnText="Get Enlisted" />
+        <EnlistForm />
 
         <motion.div
           variants={itemVariants}

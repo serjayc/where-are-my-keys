@@ -1,6 +1,6 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
-import Members from "@/pages/cast/Members";
+import Members from "@/features/cast/Members";
 
 export default function CastPage() {
   return (

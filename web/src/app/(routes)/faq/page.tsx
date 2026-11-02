@@ -1,6 +1,6 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
-import FAQList from "../../../pages/faq/FAQList";
+import FAQList from "../../../features/faq/FAQList";
 
 export default function FAQPage() {
   return (

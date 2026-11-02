@@ -1,8 +1,8 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
-import BehindScenesHero from "@/pages/behind-scenes/BehindScenesHero";
-import ProductionNotes from "@/pages/behind-scenes/ProductionNotes";
-import ProductionStill from "@/pages/behind-scenes/ProductionStill";
+import BehindScenesHero from "@/features/behind-scenes/BehindScenesHero";
+import ProductionNotes from "@/features/behind-scenes/ProductionNotes";
+import ProductionStill from "@/features/behind-scenes/ProductionStill";
 
 export default function BehindScenesPage() {
   return (

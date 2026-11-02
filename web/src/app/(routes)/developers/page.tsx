@@ -1,6 +1,6 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
-import Developers from "@/pages/developers/Developers";
+import Developers from "@/features/developers/Developers";
 
 export default function DevelopersPage() {
   return (
