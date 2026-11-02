@@ -4,7 +4,7 @@ import StoryChapters from "@/pages/story/StoryChapters";
 
 export default function StoryPage() {
   return (
-    <Container className="pt-32 pb-16 lg:pt-48">
+    <Container className="py-16 lg:pt-32">
       <PageHeading title="Three acts." titleHighlighted="One missing key." />
       <StoryChapters />
     </Container>

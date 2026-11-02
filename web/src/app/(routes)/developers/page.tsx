@@ -4,7 +4,7 @@ import Developers from "@/pages/developers/Developers";
 
 export default function DevelopersPage() {
   return (
-    <Container className="pt-32 lg:pt-48 pb-16">
+    <Container className="py-16 lg:pt-32">
       <PageHeading title="Secrets" titleHighlighted="Held by." />
       <Developers />
     </Container>

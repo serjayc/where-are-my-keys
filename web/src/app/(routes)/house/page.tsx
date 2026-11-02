@@ -4,7 +4,7 @@ import GameWrapper from "@/pages/house/GameWrapper";
 
 export default function HousePage() {
   return (
-    <Container className="pt-32 lg:pt-48 pb-16">
+    <Container className="py-16 lg:pt-32">
       <PageHeading title="Come in." titleHighlighted="Look closer." />
       <GameWrapper />
     </Container>
