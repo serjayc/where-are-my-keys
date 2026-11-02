@@ -1,17 +1,14 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-
 import { enlistModule } from "./modules/enlist/index.js";
 
 const app = new Hono();
 
-const port = Number(process.env.PORT) || 4000;
-
 const allowedOrigins = [
-  process.env.CLIENT_URL,
-  process.env.CLIENT_ACTIVE_URL,
-].filter((origin): origin is string => Boolean(origin));
+  "http://localhost:3000",
+  "https://where-are-my-keys.vercel.app",
+];
 
 app.use(
   "*",
@@ -23,11 +20,11 @@ app.use(
   }),
 );
 
-app.get("/", (c) => {
-  return c.json({ message: "Hello Hono!" });
-});
+app.get("/", (c) => c.json({ message: "Hello Hono!" }));
 
 app.route("/enlist", enlistModule);
+
+const port = Number(process.env.PORT) || 4000;
 
 serve(
   {
@@ -35,7 +32,5 @@ serve(
     port,
     hostname: "0.0.0.0",
   },
-  (info) => {
-    console.log(`Server running on port ${info.port}`);
-  },
+  (info) => console.log(`Server running on port ${info.port}`),
 );

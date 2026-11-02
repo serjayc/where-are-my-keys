@@ -4,7 +4,7 @@ import Members from "@/features/cast/Members";
 
 export default function CastPage() {
   return (
-    <Container className="py-16 lg:pt-32">
+    <Container className="py-24 lg:pt-32">
       <PageHeading title="The ones who" titleHighlighted="Live here." />
       <Members />
     </Container>
