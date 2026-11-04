@@ -26,7 +26,10 @@ const itemVariants = {
 
 export default function BannerSection() {
   return (
-    <section className="relative overflow-hidden bg-secondary/50 py-20 sm:py-28">
+    <section
+      id="events"
+      className="relative overflow-hidden bg-secondary/50 py-20 sm:py-28"
+    >
       <motion.div
         className="mx-auto max-w-3xl px-6 text-center sm:px-10"
         variants={containerVariants}

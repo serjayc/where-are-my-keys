@@ -16,7 +16,7 @@ export default function PageHeading({ title, titleHighlighted }: Props) {
         duration: 0.5,
         ease: "easeOut",
       }}
-      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase font-serif font-semibold mb-8"
+      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl landscape:text-4xl uppercase font-serif font-semibold mb-8"
     >
       {title} <br />
       <span className="italic text-primary">{titleHighlighted}</span>

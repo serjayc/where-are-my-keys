@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Play, ArrowUpRight, Key } from "lucide-react";
+import { Menu, ArrowUpRight, Key, CalendarFold } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -101,9 +101,9 @@ export default function HeaderMobile() {
         <div className="mt-auto border-t border-border p-4">
           <Button asChild size="lg" className="w-full rounded-xl">
             <SheetClose asChild>
-              <Link href="#trailer">
-                <Play className="size-4 fill-current" />
-                Watch trailer
+              <Link href="/#events">
+                <CalendarFold className="size-4" />
+                Upcoming Events
                 <ArrowUpRight className="ml-auto size-4" />
               </Link>
             </SheetClose>
