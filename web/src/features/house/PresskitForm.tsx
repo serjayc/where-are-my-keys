@@ -49,7 +49,7 @@ export default function PresskitForm({ onClose }: Props) {
         toast.success("Thank you for subscribing to our updates.");
       }
     } catch (error) {
-      toast.success(`Something went wrong. Try again later.`);
+      toast.error(`Something went wrong. Try again later.`);
       reset();
       console.error("Subscription Error:", error);
     }

@@ -23,12 +23,18 @@ export default function EnlistForm() {
 
   const onSubmit = async (data: UserInput) => {
     try {
-      await api.post("/enlist", data);
+      const res = await api.post("/enlist", data);
       reset();
 
-      toast.success(`Successfuly enlisted`);
+      if (res.data.alreadySubscribed) {
+        toast.success(
+          "You're already enlisted. Checkout the House to get free presskit materials!",
+        );
+      } else {
+        toast.success("Successfuly enlisted");
+      }
     } catch (error) {
-      toast.success(`Something went wrong. Try again later.`);
+      toast.error(`Something went wrong. Try again later.`);
       reset();
       console.error("Enlistment failed:", error);
     }
