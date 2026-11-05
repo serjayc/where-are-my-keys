@@ -31,7 +31,7 @@ export default function GameField({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl"
+      className="relative aspect-video landscape:sm:w-[70%] w-full mx-auto overflow-hidden rounded-2xl"
     >
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/40 text-center sm:hidden">
         <p className="text-sm font-medium">
